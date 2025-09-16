@@ -1,95 +1,52 @@
 import 'package:flutter/material.dart';
 
 class DirtyScreenTwo extends StatelessWidget {
-  const DirtyScreenTwo({super.key});
+  final String description;
+  const DirtyScreenTwo({super.key, required this.description});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Dirty Screen #2"),
       ),
-      body: SingleChildScrollView(
+      body: const SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
           children: [
-            Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  color: Colors.greenAccent),
-              margin: const EdgeInsets.all(4),
-              padding: const EdgeInsets.all(16.0),
-              child: const Row(
-                children: [
-                  Icon(Icons.eco),
-                  SizedBox(
-                    width: 8,
-                  ),
-                  Text(
-                    'Box A',
-                    style: TextStyle(fontSize: 20, color: Colors.white),
-                  )
-                ],
-              ),
+            Container_Wrap_two(
+              description: 'Box A',
             ),
-            Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  color: Colors.greenAccent),
-              margin: const EdgeInsets.all(4),
-              padding: const EdgeInsets.all(16.0),
-              child: const Row(
-                children: [
-                  Icon(Icons.eco),
-                  SizedBox(
-                    width: 8,
-                  ),
-                  Text(
-                    'Box B',
-                    style: TextStyle(fontSize: 20, color: Colors.white),
-                  )
-                ],
-              ),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  color: Colors.greenAccent),
-              margin: const EdgeInsets.all(4),
-              padding: const EdgeInsets.all(16.0),
-              child: const Row(
-                children: [
-                  Icon(Icons.eco),
-                  SizedBox(
-                    width: 8,
-                  ),
-                  Text(
-                    'Box C',
-                    style: TextStyle(fontSize: 20, color: Colors.white),
-                  )
-                ],
-              ),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  color: Colors.greenAccent),
-              margin: const EdgeInsets.all(4),
-              padding: const EdgeInsets.all(16.0),
-              child: const Row(
-                children: [
-                  Icon(Icons.eco),
-                  SizedBox(
-                    width: 8,
-                  ),
-                  Text(
-                    'Box D',
-                    style: TextStyle(fontSize: 20, color: Colors.white),
-                  )
-                ],
-              ),
-            ),
+            Container_Wrap_two(description: 'Box B'),
+            Container_Wrap_two(description: 'Box C'),
+            Container_Wrap_two(description: 'Box D'),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class Container_Wrap_two extends StatelessWidget {
+  final String description;
+  const Container_Wrap_two({super.key, required this.description});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(12), color: Colors.greenAccent),
+      margin: const EdgeInsets.all(4),
+      padding: const EdgeInsets.all(16.0),
+      child: Row(
+        children: [
+          const Icon(Icons.eco),
+          const SizedBox(
+            width: 8,
+          ),
+          Text(
+            description,
+            style: const TextStyle(fontSize: 20, color: Colors.white),
+          )
+        ],
       ),
     );
   }
