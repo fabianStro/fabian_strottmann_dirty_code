@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
 class DirtyScreenThree extends StatelessWidget {
-  final String description;
-  const DirtyScreenThree({super.key, required this.description});
+  const DirtyScreenThree({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
